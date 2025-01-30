@@ -1,1 +1,77 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        body, html {
+            height: 100%;
+        }
+        #container {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        #message {
+            padding: 20px;
+            color: black;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            width: 40%;
+            height: 40%;
+            border: 2px solid black;
+            border-radius: 20px;
+            position: relative;
+        }
+        #message select {
+            font-size: 1.05em;
+        }
+        button {
+            font-size: 1.1em;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="message">
+            <form action="">
+                <label for="">Você me ama? <select name="" id=""><option value="sim">Sim</option>
+                <option value="sim">Sim</option>
+                <option value="sim">Sim</option>
+                <option value="sim">Sim</option>
+                <option value="sim">Sim</option>
+                <option value="sim">Sim</option>
+                <option value="sim">Sim</option>
+                </select></label>
+                <br>
+                <button id="enviar">Enviar</button>    
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let enviar = document.querySelector("#enviar")
+        enviar.addEventListener("click", (e) => {
+            e.preventDefault()
+            window.location.href = "https://DouglasRoliveira.github.io/final.html"
+        })
+    </script>
+</body>
+</html>

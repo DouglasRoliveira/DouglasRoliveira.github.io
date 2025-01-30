@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        body, html {
+            height: 100%;
+        }
+        #container {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        #message {
+            color: white;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            width: 40%;
+            height: 40%;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px #99b;
+            position: relative;
+            z-index: 10;
+        }
+        .heart {
+            position: absolute;
+            background-image: url(./midias/heart_like_love_twitter_icon_127132.png);
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            animation: floatUp 15s linear forwards;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+            }
+            /*
+            70% {
+                transform: translateY(-70vh);
+                opacity: 1;
+            } */
+            100% {
+                transform: translateY(-200vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="message">Clique em mim</div>
+    </div>
+
+
+    <script>
+        let btnToClick = document.querySelector("#message");
+        let container = document.querySelector("#container");
+
+        btnToClick.addEventListener("click", () => {
+            btnToClick.innerHTML = "EU TE AMOOOOOO❤️❤️❤️";
+            btnToClick.style.backgroundColor = "#fa0aba";
+            btnToClick.style.color = "black";
+            btnToClick.style.boxShadow = "0px 0px 0px";
+            container.style.backgroundColor = "#FFC0CB";
+
+            let audio = new Audio("./midias/i-love-you.mp3")
+            audio.loop = true
+            let qtdRepetition = 0
+            audio.addEventListener("canplaythrough", () => {
+                qtdRepetition < 3 ? qtdRepetition++ : audio.loop = false
+                audio.play()
+            })
+
+            for (let i = 0; i < 45; i++) {
+                createHeart();
+            }
+        });
+
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.classList.add("heart");
+
+            let xPos = Math.random() * window.innerWidth;
+            let yPos = Math.random() * window.innerHeight;
+            heart.style.left = `${xPos}px`;
+            heart.style.top = `${yPos}px`;
+
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 15000);
+        }
+    </script>
+</body>
+</html>
